@@ -1,28 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Menu } from "@headlessui/react";
 import { BsChevronDown } from "react-icons/bs";
+import { RoomContext } from "../context/RoomContext";
 
 const list = [
-  { name: "1 Adulto" },
-  { name: "2 Adultos" },
-  { name: "3 Adultos" },
-  { name: "4 Adultos" },
+  { name: "0 Crianças" },
+  { name: "1 Criança" },
+  { name: "2 Crianças" },
+  { name: "3 Crianças" },
+  { name: "4+ Crianças" },
 ];
 
-const AdultsDropdown = () => {
+const KidsDropdown = () => {
+  const {kids, setKids} = useContext(RoomContext)
   return (
     <Menu as="div" className="w-full h-full bg-white relative">
       <Menu.Button className="w-full h-full flex items-center justify-between px-8">
-        Adultos
+       {kids === '0 Crianças' ? 'Sem Crianças': kids }
         <BsChevronDown className="text-base text-accent-hover" />
       </Menu.Button>
       <Menu.Items
         as="ul"
-        className="bg-green-200 absolute w-full flex flex-col z-40 "
+        className="bg-white absolute w-full flex flex-col z-40 "
       >
         {list.map((li, index) => {
           return (
             <Menu.Item
+            onClick={() => setKids(li.name)}
               as="li"
               className="border-b last-of-type:border-b-0 h-12 hover:bg-accent hover:text-white w-full flex justify-center items-center cursor-pointer "
               key={index}
@@ -36,4 +40,4 @@ const AdultsDropdown = () => {
   );
 };
 
-export default AdultsDropdown;
+export default KidsDropdown;

@@ -25,7 +25,15 @@ const Room = ({ room }) => {
             </div>
           </div>
 
-          <div>people</div>
+          <div className="flex items-center">
+            <div className="text-accent">
+              <BsArrowsFullscreen className="text-[18px]" />
+            </div>
+            <div className="flex gap-x-1">
+              <div>Tam.</div>
+              <div>{size}</div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="text-center">
