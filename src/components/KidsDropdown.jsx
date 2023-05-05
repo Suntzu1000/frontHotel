@@ -15,7 +15,7 @@ const KidsDropdown = () => {
   const {kids, setKids} = useContext(RoomContext)
   return (
     <Menu as="div" className="w-full h-full bg-white relative">
-      <Menu.Button className="w-full h-full flex items-center justify-between px-8">
+      <Menu.Button className="w-full h-full flex items-center justify-between px-8 text-black ">
        {kids === '0 Crianças' ? 'Sem Crianças': kids }
         <BsChevronDown className="text-base text-accent-hover" />
       </Menu.Button>
@@ -28,7 +28,7 @@ const KidsDropdown = () => {
             <Menu.Item
             onClick={() => setKids(li.name)}
               as="li"
-              className="border-b last-of-type:border-b-0 h-12 hover:bg-accent hover:text-white w-full flex justify-center items-center cursor-pointer "
+              className="border-b last-of-type:border-b-0 h-12 hover:bg-accent hover:text-white w-full flex justify-center items-center cursor-pointer text-black "
               key={index}
             >
               {li.name}
